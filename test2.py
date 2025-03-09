@@ -20,19 +20,34 @@ def connect_to_mysql(config_file="config.ini"):
         return None, None
 
 def execute_query(cursor, query):
-    # ... (This function remains the same as in the previous response)
+    """Executes a query and handles errors."""
+    try:
+        print(f"Executing query: {query}")
+        cursor.execute(query)
+        results = cursor.fetchall()
+        return results
+    except mysql.connector.Error as err:
+        print(f"Error executing query: {err}")
+        return None
 
 def close_connection(mydb, cursor):
-    # ... (This function remains the same as in the previous response)
+    """Closes the database connection and cursor safely."""
+    if cursor:
+        cursor.close()
+    if mydb:
+        mydb.close()
 
 if __name__ == "__main__":
     mydb, cursor = connect_to_mysql()
 
     if mydb and cursor:
-        results = execute_query(cursor, "SELECT * FROM your_table") # Replace with your query
+        query = "SELECT * FROM your_table"  # Replace with your query
+        results = execute_query(cursor, query)
         if results:
             for row in results:
                 print(row)
+        else:
+            print("No data found for the query.")
         close_connection(mydb, cursor)
     else:
-        print("Failed to connect to MySQL.")
+        print("Failed to connect to the MySQL database.")
