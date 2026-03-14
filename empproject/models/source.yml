@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: customer 
+    database: DEEPU_DB
+    schema: TEST_SCHEMA1
+    tables:
+      - name: cust_site
+      
+  - name: subscriber 
+    database: DEEPU_DB
+    schema: TEST_SCHEMA1
+    tables:
+      - name: cust_subscriber
+      
+  - name: emp_raw 
+    database: DEEPU_DB
+    schema: TEST_SCHEMA1
+    tables:
+      - name: emp
