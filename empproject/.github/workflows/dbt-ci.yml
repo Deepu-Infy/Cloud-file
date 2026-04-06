@@ -25,7 +25,7 @@ jobs:
           mkdir -p ~/.dbt
           cat <<EOF > ~/.dbt/profiles.yml
           empproject:
-            target: STG
+            target: dev
             outputs:
               dev:
                 type: snowflake
