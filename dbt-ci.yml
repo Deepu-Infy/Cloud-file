@@ -1,0 +1,28 @@
+# profiles.yml
+
+dev:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: <account>
+      user: <user>
+      password: <password>
+      role: <role>
+      warehouse: <warehouse>
+      database: <database>
+      schema: <schema>
+
+stg:
+  target: stg
+  outputs:
+    stg:
+      type: snowflake
+      account: <account>
+      user: <user>
+      password: <password>
+      role: <role>
+      warehouse: <warehouse>
+      database: <database>
+      schema: <schema>
+
