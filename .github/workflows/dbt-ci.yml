@@ -36,7 +36,7 @@ jobs:
           mkdir -p ~/.dbt
           cat <<EOF > ~/.dbt/profiles.yml
           empproject:
-            target: STG
+            target: dev
             outputs:
               dev:
                 type: snowflake
@@ -51,7 +51,4 @@ jobs:
           EOF
 
       - name: Run dbt
-        run: |
-          cd empproject
-          dbt deps
-          dbt build
+        run: python empproject/dbt_run.py|
