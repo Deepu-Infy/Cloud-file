@@ -1,5 +1,4 @@
 {% set grouping_cols = ['COUNTRY', 'CITY'] %}
-
 SELECT 
     {% for col in grouping_cols -%}
     {{ col }},
@@ -9,3 +8,6 @@ FROM {{ source('subscriber', 'cust_subscriber') }}
 GROUP BY 
     {% for col in grouping_cols -%}
     {{ loop.index }}{{ "," if not loop.last }}
+    {% for col in grouping_cols %}
+    {{ loop.index }}{{ "," if not loop.last }}
+    {% endfor %}
