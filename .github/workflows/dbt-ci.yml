@@ -51,7 +51,4 @@ jobs:
           EOF
 
       - name: Run dbt
-        run: |
-          cd empproject
-          dbt deps
-          dbt build
+        run: python empproject/dbt_run.py|
