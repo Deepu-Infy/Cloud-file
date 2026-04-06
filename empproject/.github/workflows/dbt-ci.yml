@@ -40,4 +40,4 @@ jobs:
           EOF
 
       - name: Run dbt
-        run: python empproject/dbt_run.py dbt_run.py
+        run: python empproject/dbt_run.py
